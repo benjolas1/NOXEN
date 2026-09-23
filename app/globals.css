@@ -38,12 +38,24 @@ body {
   position: relative;
 }
 
+/*
+ * iPhone / Capacitor Safe Areas
+ *
+ * Verhindert, dass Inhalte hinter Dynamic Island,
+ * Statusleiste oder Home Indicator liegen.
+ */
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
 #__next {
   min-height: 100dvh;
 }
 
 main {
-  min-height: 100dvh;
+  min-height: calc(100dvh - env(safe-area-inset-top, 0px));
 }
 
 a {
@@ -68,7 +80,7 @@ img {
 .app-screen,
 .app-page {
   width: 100%;
-  min-height: 100dvh;
+  min-height: calc(100dvh - env(safe-area-inset-top, 0px));
   height: auto;
   overflow-y: auto;
   overflow-x: hidden;
@@ -90,4 +102,33 @@ img {
     radial-gradient(circle at top, rgba(139, 92, 246, 0.25), transparent 35%),
     radial-gradient(circle at bottom, rgba(236, 72, 153, 0.18), transparent 30%),
     #000;
+}
+
+/*
+ * Hilfsklassen für Elemente, die gezielt an der
+ * iPhone Safe Area ausgerichtet werden sollen.
+ */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-left {
+  padding-left: env(safe-area-inset-left, 0px);
+}
+
+.safe-right {
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.safe-x {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.safe-bottom-fixed {
+  bottom: env(safe-area-inset-bottom, 0px);
 }

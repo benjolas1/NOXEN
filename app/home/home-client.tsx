@@ -31,7 +31,7 @@ export default function HomeClient() {
         className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-36"
         style={{
           paddingTop:
-            "max(24px, calc(env(safe-area-inset-top) + 12px))",
+            "max(54px, calc(env(safe-area-inset-top, 0px) + 50px))",
         }}
       >
         <Hero />
